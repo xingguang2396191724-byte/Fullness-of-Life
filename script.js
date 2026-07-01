@@ -1,140 +1,81 @@
-// 移动端菜单切换
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    // 汉堡菜单点击事件
-    if (hamburger) {
-        hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+});
+
+const galleryData = {
+    industrial: {
+        title: "Industrial Maintenance Systems",
+        images: [
+            "https://sc04.alicdn.com/kf/Sd5fe1a1aeeae4577b47e0ecc671fd01fG/285646020/Sd5fe1a1aeeae4577b47e0ecc671fd01fG.png",
+            "https://sc04.alicdn.com/kf/A0507ef74565a46dfb7b1e21d4778f856N/285646020/A0507ef74565a46dfb7b1e21d4778f856N.png",
+            "https://sc04.alicdn.com/kf/Af44b1f10370246b8bdcba18412d92752H/285646020/Af44b1f10370246b8bdcba18412d92752H.png",
+            "https://sc04.alicdn.com/kf/Ae74cfaf34a7f4167940c62d250893e12p/285646020/Ae74cfaf34a7f4167940c62d250893e12p.png",
+            "https://sc04.alicdn.com/kf/A6c6292ae9a924eeeb8ef864130f3ad1fL/285646020/A6c6292ae9a924eeeb8ef864130f3ad1fL.png"
+        ]
+    },
+    food: {
+        title: "Food Preservation Technology",
+        images: [
+            "https://sc04.alicdn.com/kf/Hbc19656d83b044188db4030739691e40d/285646020/Hbc19656d83b044188db4030739691e40d.png",
+            "https://sc04.alicdn.com/kf/A5765398e9f564130ae2eb6152c924302I/285646020/A5765398e9f564130ae2eb6152c924302I.png",
+            "https://sc04.alicdn.com/kf/A3f2e14f9ade041ccbbee184bb8c0c770Q/285646020/A3f2e14f9ade041ccbbee184bb8c0c770Q.png",
+            "https://sc04.alicdn.com/kf/A4256ae77c0b944628a629518cbaf38cev/285646020/A4256ae77c0b944628a629518cbaf38cev.png",
+            "https://sc04.alicdn.com/kf/A4eed7bf9dcdd4edab98ec0c37f4ad0eee/285646020/A4eed7bf9dcdd4edab98ec0c37f4ad0eee.png"
+        ]
+    },
+    logistics: {
+        title: "Logistics & Support",
+        images: [
+            "https://sc04.alicdn.com/kf/A0812d4542b6a40e7932bc78ff8764f95U/285646020/A0812d4542b6a40e7932bc78ff8764f95U.png",
+            "https://sc04.alicdn.com/kf/A24f6a7dfb3cb4f41a196ea51ed879304Z/285646020/A24f6a7dfb3cb4f41a196ea51ed879304Z.png",
+            "https://sc04.alicdn.com/kf/Scc885abcfc4448f9a6f25d3fd1574d70F/285646020/Scc885abcfc4448f9a6f25d3fd1574d70F.png",
+            "https://sc04.alicdn.com/kf/Aee14abb548d448f1ac8559a0ffc2e588M/285646020/Aee14abb548d448f1ac8559a0ffc2e588M.png"
+        ]
+    },
+    compliance: {
+        title: "Compliance & Supply Chain",
+        images: [
+            "https://sc04.alicdn.com/kf/H3aecaceeb98e4dbd9204e90c5480137av/285646020/H3aecaceeb98e4dbd9204e90c5480137av.jpg",
+            "https://sc04.alicdn.com/kf/H6df51c521ce84b82816a5e785c1926d46/285646020/H6df51c521ce84b82816a5e785c1926d46.png",
+            "https://sc04.alicdn.com/kf/Aa9079baa4bfe4c72988b7884d4bd2710H/285646020/Aa9079baa4bfe4c72988b7884d4bd2710H.jpg"
+        ]
     }
-    
-    // 导航链接点击事件
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            // 如果是移动端，点击后关闭菜单
-            if (window.innerWidth <= 768) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            }
-            
-            // 移除所有激活状态
-            navLinks.forEach(l => l.classList.remove('active'));
-            
-            // 添加当前激活状态
-            this.classList.add('active');
-            
-            // 平滑滚动
-            const targetId = this.getAttribute('href');
-            if (targetId.startsWith('#')) {
-                e.preventDefault();
-                const targetSection = document.querySelector(targetId);
-                if (targetSection) {
-                    window.scrollTo({
-                        top: targetSection.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        });
-    });
-    
-    // 预约表单提交
-    const bookingForm = document.getElementById('bookingForm');
-    if (bookingForm) {
-        bookingForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // 获取当前语言
-            const currentLang = localStorage.getItem('language') || 'zh';
-            
-            // 获取表单数据
-            const formData = new FormData(this);
-            const formValues = Object.fromEntries(formData);
-            
-            // 创建多语言提示消息
-            const messages = {
-                zh: {
-                    title: '感谢您的预约！',
-                    message: '我们将尽快联系您。\n\n预约信息：\n' +
-                           `姓名：${formValues[0] || ''}\n` +
-                           `电话：${formValues[1] || ''}\n` +
-                           `服务类型：${formValues[3] || ''}`,
-                    serviceTypes: {
-                        'home': '家庭清洁',
-                        'office': '办公清洁',
-                        'carpet': '地毯清洗',
-                        'glass': '玻璃清洁'
-                    }
-                },
-                en: {
-                    title: 'Thank you for your booking!',
-                    message: 'We will contact you as soon as possible.\n\nBooking Information:\n' +
-                           `Name: ${formValues[0] || ''}\n` +
-                           `Phone: ${formValues[1] || ''}\n` +
-                           `Service Type: ${formValues[3] || ''}`,
-                    serviceTypes: {
-                        'home': 'Home Cleaning',
-                        'office': 'Office Cleaning',
-                        'carpet': 'Carpet Cleaning',
-                        'glass': 'Glass Cleaning'
-                    }
-                }
-            };
-            
-            const langMessages = messages[currentLang];
-            let serviceType = formValues[3];
-            
-            // 翻译服务类型
-            if (serviceType && langMessages.serviceTypes[serviceType]) {
-                serviceType = langMessages.serviceTypes[serviceType];
-            }
-            
-            alert(langMessages.title + '\n\n' + langMessages.message.replace('${formValues[3] || \'\'}', serviceType));
-            
-            // 清空表单
-            this.reset();
-            
-            // 重置选择框
-            const select = this.querySelector('select');
-            if (select) {
-                select.selectedIndex = 0;
-            }
-        });
-    }
-    
-    // 滚动时更新导航栏激活状态
-    window.addEventListener('scroll', function() {
-        const sections = document.querySelectorAll('section[id]');
-        const scrollPosition = window.scrollY + 100;
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            const sectionId = section.getAttribute('id');
-            
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        });
-        
-        // 添加滚动阴影效果
-        const header = document.querySelector('header');
-        if (window.scrollY > 50) {
-            header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
-        } else {
-            header.style.boxShadow = 'none';
+};
+
+const modal = document.getElementById("galleryModal");
+const modalTitle = document.getElementById("galleryTitle");
+const swiperWrapper = document.getElementById("swiperWrapper");
+const closeBtn = document.querySelector(".close-modal");
+let swiperInstance = null;
+
+document.querySelectorAll(".service-card").forEach(card => {
+    card.addEventListener("click", () => {
+        const type = card.getAttribute("data-gallery");
+        const data = galleryData[type];
+        if (data) {
+            modalTitle.innerText = data.title;
+            swiperWrapper.innerHTML = "";
+            data.images.forEach(src => {
+                const slide = document.createElement("div");
+                slide.className = "swiper-slide";
+                slide.innerHTML = `<img src="${src}" class="gallery-img">`;
+                swiperWrapper.appendChild(slide);
+            });
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+            if (swiperInstance) swiperInstance.destroy();
+            swiperInstance = new Swiper(".mySwiper", {
+                loop: true,
+                autoplay: { delay: 3000, disableOnInteraction: false },
+                pagination: { el: ".swiper-pagination", clickable: true },
+                navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+            });
         }
     });
-    
-    // 页面加载时的初始化
-    window.dispatchEvent(new Event('scroll'));
 });
+
+closeBtn.onclick = () => { modal.style.display = "none"; document.body.style.overflow = "auto"; };
+window.onclick = (e) => { if (e.target == modal) { modal.style.display = "none"; document.body.style.overflow = "auto"; } };

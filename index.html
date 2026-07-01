@@ -1,20 +1,19 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fullness of Life (Shanghai) International Trade Co., Ltd. - Industrial Solutions</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
-    <!-- 语言切换器 -->
     <div class="language-switcher">
         <button id="langZh" class="lang-btn">中文</button>
         <button id="langEn" class="lang-btn active">English</button>
     </div>
     
-    <!-- 顶部导航栏 -->
     <header>
         <nav class="navbar">
             <div class="logo">
@@ -22,21 +21,15 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link active" data-i18n="nav.home">Home</a></li>
-                <li><a href="#services" class="nav-link" data-i18n="nav.services">Services</a></li>
-                <li><a href="#about" class="nav-link" data-i18n="nav.about">About Us</a></li>
+                <li><a href="#services" class="nav-link" data-i18n="nav.services">Sectors</a></li>
+                <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
                 <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
             </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+            <div class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
         </nav>
     </header>
     
-    <!-- 主内容区 -->
     <main>
-        <!-- 首页横幅 -->
         <section id="home" class="hero">
             <div class="hero-content">
                 <h2 data-i18n="hero.title">Strategic Partner for Engineering Contractors & Infrastructure Operators</h2>
@@ -47,166 +40,78 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="https://sc04.alicdn.com/kf/Sd5fe1a1aeeae4577b47e0ecc671fd01fG/285646020/Sd5fe1a1aeeae4577b47e0ecc671fd01fG.png" alt="Industrial Solutions">
+                <img src="https://sc04.alicdn.com/kf/H8eece74150ca4ad4a37f9299af181ba2W/285646020/H8eece74150ca4ad4a37f9299af181ba2W.png" alt="Industrial Ecosystem">
             </div>
         </section>
         
-        <!-- 服务展示 -->
         <section id="services" class="services">
             <div class="section-header">
                 <h2 data-i18n="services.title">Our Specialized Solutions</h2>
-                <p data-i18n="services.subtitle">Providing elite, solution-oriented industrial equipment for your global projects.</p>
+                <p data-i18n="services.subtitle">Click below to view our interactive product galleries.</p>
             </div>
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
+                <div class="service-card" data-gallery="industrial">
+                    <div class="service-icon"><i class="fas fa-tools"></i></div>
                     <h3 data-i18n="services.service1.title">Industrial Maintenance Systems</h3>
-                    <p data-i18n="services.service1.desc">High-suction vacuum systems, HEPA filtration, and ride-on scrubbers for infrastructure projects.</p>
+                    <p data-i18n="services.service1.desc">High-suction vacuum systems, HEPA filtration, and ride-on scrubbers.</p>
+                    <span class="view-more">View Gallery <i class="fas fa-arrow-right"></i></span>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-box-open"></i>
-                    </div>
+                <div class="service-card" data-gallery="food">
+                    <div class="service-icon"><i class="fas fa-box-open"></i></div>
                     <h3 data-i18n="services.service2.title">Food Preservation Technology</h3>
-                    <p data-i18n="services.service2.desc">Vacuum packaging, MAP, and skin packaging technology for post-harvest value-add strategies.</p>
+                    <p data-i18n="services.service2.desc">Vacuum packaging, MAP, and skin packaging technology.</p>
+                    <span class="view-more">View Gallery <i class="fas fa-arrow-right"></i></span>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-halved"></i>
-                    </div>
-                    <h3 data-i18n="services.service3.title">Compliance & Supply Chain</h3>
-                    <p data-i18n="services.service3.desc">Navigating complex regulations with professional legal oversight and technical pre-consultancy.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-truck-fast"></i>
-                    </div>
+                <div class="service-card" data-gallery="logistics">
+                    <div class="service-icon"><i class="fas fa-truck-fast"></i></div>
                     <h3 data-i18n="services.service4.title">Logistics & Support</h3>
-                    <p data-i18n="services.service4.desc">OEM/ODM integration and spare parts continuity ensuring long-term operational uptime.</p>
+                    <p data-i18n="services.service4.desc">OEM/ODM integration and spare parts continuity.</p>
+                    <span class="view-more">View Gallery <i class="fas fa-arrow-right"></i></span>
+                </div>
+                <div class="service-card" data-gallery="compliance">
+                    <div class="service-icon"><i class="fas fa-shield-halved"></i></div>
+                    <h3 data-i18n="services.service3.title">Compliance & Supply Chain</h3>
+                    <p data-i18n="services.service3.desc">Navigating complex regulations with legal oversight.</p>
+                    <span class="view-more">View Gallery <i class="fas fa-arrow-right"></i></span>
                 </div>
             </div>
         </section>
         
-        <!-- 关于我们 -->
         <section id="about" class="about">
             <div class="about-content">
                 <h2 data-i18n="about.title">About Fullness of Life</h2>
                 <p data-i18n="about.desc">Based in Pudong, Shanghai, we operate as a Strategic Technical Partner, engineering reliability and legal certainty into your supply chain.</p>
                 <div class="features">
-                    <div class="feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span data-i18n="about.feature1">Legal Background</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span data-i18n="about.feature2">Environment Analysis</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span data-i18n="about.feature3">Direct R&D Access</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span data-i18n="about.feature4">Global Partnership</span>
-                    </div>
+                    <div class="feature"><i class="fas fa-check-circle"></i> <span data-i18n="about.feature1">Legal Background</span></div>
+                    <div class="feature"><i class="fas fa-check-circle"></i> <span data-i18n="about.feature2">Environment Analysis</span></div>
                 </div>
             </div>
             <div class="about-image">
-                <img src="https://sc04.alicdn.com/kf/Sf99e84300dbb456b877de165a0c42020t/285646020/Sf99e84300dbb456b877de165a0c42020t.png" alt="Industrial Partnership">
-            </div>
-        </section>
-        
-        <!-- 联系我们 -->
-        <section id="contact" class="contact">
-            <div class="section-header">
-                <h2 data-i18n="contact.title">Contact Us</h2>
-                <p data-i18n="contact.subtitle">Ready to support your infrastructure and packaging projects worldwide.</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h3 data-i18n="contact.phone.title">Contact Number</h3>
-                            <p class="phone-number">+86 19167488424</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h3 data-i18n="contact.email.title">Email</h3>
-                            <p>sales@jingbears.com</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h3 data-i18n="contact.address.title">Office Address</h3>
-                            <p data-i18n="contact.address.desc">Room 205, West Area, 2nd Floor, No. 707 Zhangyang Road, Pudong, Shanghai, China</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h3 data-i18n="contact.hours.title">Service Hours</h3>
-                            <p data-i18n="contact.hours.desc">Mon - Sun: 8:00 - 20:00 (CST)</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <h3 data-i18n="contact.form.title">Online Inquiry</h3>
-                    <form id="bookingForm">
-                        <input type="text" placeholder="Your Name" data-i18n-placeholder="contact.form.name" required>
-                        <input type="tel" placeholder="Phone Number" data-i18n-placeholder="contact.form.phone" required>
-                        <input type="email" placeholder="Email Address" data-i18n-placeholder="contact.form.email">
-                        <select required>
-                            <option value="" disabled selected data-i18n="contact.form.serviceDefault">Select Solution Type</option>
-                            <option value="industrial" data-i18n="contact.form.service1">Industrial Maintenance</option>
-                            <option value="food" data-i18n="contact.form.service2">Food Preservation</option>
-                            <option value="compliance" data-i18n="contact.form.service3">Compliance & Supply Chain</option>
-                            <option value="logistics" data-i18n="contact.form.service4">Logistics & Support</option>
-                        </select>
-                        <textarea placeholder="Tell us about your project" data-i18n-placeholder="contact.form.message" rows="4"></textarea>
-                        <button type="submit" class="btn btn-primary" data-i18n="contact.form.submit">Send Inquiry</button>
-                    </form>
-                </div>
+                <img src="https://sc04.alicdn.com/kf/H230132ef076f473493f5f9f920b07175u/285646020/H230132ef076f473493f5f9f920b07175u.png" alt="Strategic Partnership">
             </div>
         </section>
     </main>
-    
-    <!-- 页脚 -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <h3><i class="fas fa-gears"></i> <span data-i18n="footer.company">Fullness of Life</span></h3>
-                <p data-i18n="footer.tagline">Engineering reliability and legal certainty globally.</p>
-            </div>
-            <div class="footer-links">
-                <h4 data-i18n="footer.quickLinks">Quick Links</h4>
-                <ul>
-                    <li><a href="#home" data-i18n="nav.home">Home</a></li>
-                    <li><a href="#services" data-i18n="nav.services">Services</a></li>
-                    <li><a href="#about" data-i18n="nav.about">About</a></li>
-                    <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-social">
-                <h4 data-i18n="footer.followUs">Follow Us</h4>
-                <div class="social-icons">
-                    <a href="https://wa.me/8619167488424"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                </div>
+
+    <div id="galleryModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-content">
+            <h2 id="galleryTitle"></h2>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper" id="swiperWrapper"></div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
         </div>
+    </div>
+    
+    <footer>
         <div class="footer-bottom">
-            <p data-i18n="footer.copyright">&copy; 2026 Fullness of Life (Shanghai) International Trade Co., Ltd. All rights reserved.</p>
-            <p class="full-company-name">Fullness of Life (Shanghai) International Trade Co., Ltd.</p>
-            <p class="address">Room 205, West Area, 2nd Floor, No. 707 Zhangyang Road, Pudong, Shanghai</p>
+            <p data-i18n="footer.copyright">&copy; 2026 Fullness of Life (Shanghai) International Trade Co., Ltd.</p>
         </div>
     </footer>
     
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
     <script src="language.js"></script>
 </body>
