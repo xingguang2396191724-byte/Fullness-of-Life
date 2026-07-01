@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fullness of Life (Shanghai) International Trade Co., Ltd. | Official Website</title>
+    <title>Fullness of Life | Strategic Industrial Solutions</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -20,7 +20,8 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link active" data-i18n="nav.home">Home</a></li>
-                <li><a href="#services" class="nav-link" data-i18n="nav.services">Sectors</a></li>
+                <li><a href="#industrial" class="nav-link" data-i18n="nav.services">Industrial</a></li>
+                <li><a href="#food-tech" class="nav-link">Food Tech</a></li>
                 <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
                 <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
             </ul>
@@ -40,34 +41,50 @@
                 <img src="https://sc04.alicdn.com/kf/H8eece74150ca4ad4a37f9299af181ba2W/285646020/H8eece74150ca4ad4a37f9299af181ba2W.png" alt="Industrial Ecosystem">
             </div>
         </section>
-        <section id="services" class="services">
+
+        <!-- Industrial Section (Card Style) -->
+        <section id="industrial" class="services">
             <div class="section-header">
-                <h2 data-i18n="services.title">Specialized Sectors</h2>
-                <p data-i18n="services.subtitle">Click to explore our high-definition interactive galleries.</p>
+                <h2 data-i18n="services.service1.title">Industrial Maintenance Systems</h2>
+                <p data-i18n="services.service1.desc">High-suction vacuum systems and facility management solutions.</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card" data-gallery="industrial">
+            <div class="services-grid" style="display: flex; justify-content: center;">
+                <div class="service-card" data-gallery="industrial" style="max-width: 500px;">
                     <div class="service-icon"><i class="fas fa-tools"></i></div>
-                    <h3 data-i18n="services.service1.title">Industrial Maintenance</h3>
-                    <span class="view-more">Launch Gallery <i class="fas fa-play-circle"></i></span>
-                </div>
-                <div class="service-card" data-gallery="food">
-                    <div class="service-icon"><i class="fas fa-box-open"></i></div>
-                    <h3 data-i18n="services.service2.title">Food Preservation</h3>
-                    <span class="view-more">Launch Gallery <i class="fas fa-play-circle"></i></span>
+                    <h3>Launch Industrial Gallery</h3>
+                    <span class="view-more">23 HD Models <i class="fas fa-play-circle"></i></span>
                 </div>
             </div>
         </section>
-        <section id="about" class="about">
+
+        <!-- Food Tech Section (Split Layout as requested) -->
+        <section id="food-tech" class="about" style="background: #fdfdfd; border-top: 1px solid #eee;">
             <div class="about-content">
-                <h2 data-i18n="about.title">Global Expertise</h2>
-                <p data-i18n="about.desc">Strategic Technical Partner based in Pudong, Shanghai. Our Master of Laws (LL.M.) oversight ensures every transaction is compliant and secure.</p>
+                <h2 style="color: #2a5caa; font-size: 2.2rem; margin-bottom: 1.5rem;">Food Preservation Technology</h2>
+                <p style="font-size: 1.1rem; color: #555; line-height: 1.8; margin-bottom: 2rem;">
+                    We provide advanced vacuum packaging, MAP, and skin packaging solutions tailored for global food security and shelf-life extension. Our systems are engineered for high-intensity industrial use.
+                </p>
+                <div class="service-card" data-gallery="food" style="text-align: left; padding: 1.5rem; display: inline-block; border: 1px solid #2a5caa;">
+                    <h3 style="font-size: 1.2rem;"><i class="fas fa-box-open"></i> View 11 Product Models</h3>
+                    <span class="view-more">Interactive Slide <i class="fas fa-arrow-right"></i></span>
+                </div>
             </div>
             <div class="about-image">
-                <img src="https://sc02.alicdn.com/kf/Hcb486fb99e7d46f0a4052530c698c67as.png" alt="Food Preservation Full Range">
+                <img src="https://sc02.alicdn.com/kf/He632055f21714a3cb2fa227f5ba98bbcW.png" alt="Food Tech Aggregate" style="box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="about-content">
+                <h2 data-i18n="about.title">Who We Are</h2>
+                <p data-i18n="about.desc">Based in Pudong, Shanghai, we provide technical pre-consultancy and legal oversight for every export project.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://sc04.alicdn.com/kf/H230132ef076f473493f5f9f920b07175u/285646020/H230132ef076f473493f5f9f920b07175u.png" alt="Strategic Partnership">
             </div>
         </section>
     </main>
+
     <div id="galleryModal" class="modal">
         <span class="close-modal">&times;</span>
         <div class="modal-content">
