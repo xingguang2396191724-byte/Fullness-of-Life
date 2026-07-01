@@ -7,9 +7,8 @@ hamburger.addEventListener("click", () => {
 
 const galleryData = {
     industrial: {
-        title: "Industrial Maintenance Systems Showcase",
+        title: "Industrial Maintenance Systems Gallery",
         images: [
-            "https://sc04.alicdn.com/kf/Sd5fe1a1aeeae4577b47e0ecc671fd01fG/285646020/Sd5fe1a1aeeae4577b47e0ecc671fd01fG.png",
             "https://sc04.alicdn.com/kf/Sf99e84300dbb456b877de165a0c42020t/285646020/Sf99e84300dbb456b877de165a0c42020t.png",
             "https://sc04.alicdn.com/kf/A0507ef74565a46dfb7b1e21d4778f856N/285646020/A0507ef74565a46dfb7b1e21d4778f856N.png",
             "https://sc04.alicdn.com/kf/Hbc19656d83b044188db4030739691e40d/285646020/Hbc19656d83b044188db4030739691e40d.png",
@@ -37,7 +36,7 @@ const galleryData = {
         ]
     },
     food: {
-        title: "Food Preservation Technology Showcase",
+        title: "Food Preservation Technology Gallery",
         images: [
             "https://sc04.alicdn.com/kf/A80511d1756f14d50a80e9ab87ef11077V/285646020/A80511d1756f14d50a80e9ab87ef11077V.jpg",
             "https://sc04.alicdn.com/kf/Ad4587e3dfefc4746bc37522d9b58ab72E/285646020/Ad4587e3dfefc4746bc37522d9b58ab72E.png",
