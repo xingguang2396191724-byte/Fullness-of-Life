@@ -13,3 +13,15 @@
 
 /* Technical specifications sourced from JingBear-provided product documents */
 .spec-link-row{margin:4px 0 24px}.spec-link-row a{display:inline-flex;align-items:center;gap:8px;color:#244b3e;font-size:12px;font-weight:700;text-decoration:underline;text-underline-offset:3px}.spec-details{margin:18px 0 10px;padding:0 16px 12px;background:#fff;border:1px solid var(--line);border-radius:12px}.spec-details summary{padding:15px 0;color:#244b3e;font-size:13px;font-weight:700;cursor:pointer}.spec-scroll{overflow-x:auto}.spec-table{width:100%;border-collapse:collapse;text-align:left;font-size:11px;line-height:1.65}.spec-table th,.spec-table td{padding:11px 12px;border-top:1px solid #e8ece7;vertical-align:top}.spec-table th{min-width:100px;color:#283833;font-weight:700}.spec-table td{color:#53615d}.spec-note{margin:12px 0 2px;color:#718078;font-size:10px;line-height:1.6}
+
+/* Homepage hostel scene hero: readable live text over the generated scene */
+.hero.hero-scene{width:100%;min-height:650px;position:relative;display:flex;align-items:center;gap:0;overflow:hidden;padding:76px max(32px,calc((100vw - var(--max))/2));background:#172321}
+.hero-scene-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 52%}
+.hero.hero-scene:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,27,24,.88) 0%,rgba(14,27,24,.69) 35%,rgba(14,27,24,.18) 70%,rgba(14,27,24,.04) 100%)}
+.hero-scene .hero-copy{position:relative;z-index:1;max-width:650px}
+.hero-scene .eyebrow{color:#eef2e8}.hero-scene .eyebrow-dot{background:var(--lime)}
+.hero-scene h1{color:#fff}.hero-scene h1 em{color:var(--lime)}
+.hero-scene .hero-lede{color:#f0f2eb;max-width:520px}
+.hero-scene .hero-actions .text-link{color:#fff;border-color:rgba(255,255,255,.65)}
+.hero-scene .hero-proof{color:#f1f3ed}.hero-scene .proof-icon{background:rgba(215,231,124,.18);color:var(--lime)}
+@media(max-width:680px){.hero.hero-scene{min-height:680px;align-items:flex-end;padding:58px 19px 42px}.hero-scene-image{object-position:65% center}.hero.hero-scene:after{background:linear-gradient(0deg,rgba(14,27,24,.94) 0%,rgba(14,27,24,.82) 38%,rgba(14,27,24,.27) 82%,rgba(14,27,24,.08) 100%)}.hero-scene .hero-copy{max-width:100%}.hero-scene h1{font-size:46px}.hero-scene .hero-lede{font-size:14px}.hero-scene .hero-proof{font-size:9px;margin-top:22px}.hero-scene .hero-actions{gap:19px;flex-wrap:wrap}}
