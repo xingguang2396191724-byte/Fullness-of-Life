@@ -25,3 +25,8 @@
 .hero-scene .hero-actions .text-link{color:#fff;border-color:rgba(255,255,255,.65)}
 .hero-scene .hero-proof{color:#f1f3ed}.hero-scene .proof-icon{background:rgba(215,231,124,.18);color:var(--lime)}
 @media(max-width:680px){.hero.hero-scene{min-height:680px;align-items:flex-end;padding:58px 19px 42px}.hero-scene-image{object-position:65% center}.hero.hero-scene:after{background:linear-gradient(0deg,rgba(14,27,24,.94) 0%,rgba(14,27,24,.82) 38%,rgba(14,27,24,.27) 82%,rgba(14,27,24,.08) 100%)}.hero-scene .hero-copy{max-width:100%}.hero-scene h1{font-size:46px}.hero-scene .hero-lede{font-size:14px}.hero-scene .hero-proof{font-size:9px;margin-top:22px}.hero-scene .hero-actions{gap:19px;flex-wrap:wrap}}
+
+/* Let every photographed model occupy the full width of its product family */
+.series-models{max-width:none}.series-three{grid-template-columns:repeat(3,minmax(0,1fr));max-width:none}.series-five{grid-template-columns:repeat(5,minmax(0,1fr));max-width:none}
+@media(max-width:1100px){.series-five{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:900px){.series-three,.series-five{grid-template-columns:repeat(2,minmax(0,1fr))}}
