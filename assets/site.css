@@ -10,3 +10,6 @@
 .series-four{grid-template-columns:repeat(4,minmax(0,1fr));max-width:none}
 @media(max-width:900px){.series-four{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:680px){.series-four{grid-template-columns:repeat(2,minmax(0,1fr))}.series-four img{height:145px}}
+
+/* Technical specifications sourced from JingBear-provided product documents */
+.spec-link-row{margin:4px 0 24px}.spec-link-row a{display:inline-flex;align-items:center;gap:8px;color:#244b3e;font-size:12px;font-weight:700;text-decoration:underline;text-underline-offset:3px}.spec-details{margin:18px 0 10px;padding:0 16px 12px;background:#fff;border:1px solid var(--line);border-radius:12px}.spec-details summary{padding:15px 0;color:#244b3e;font-size:13px;font-weight:700;cursor:pointer}.spec-scroll{overflow-x:auto}.spec-table{width:100%;border-collapse:collapse;text-align:left;font-size:11px;line-height:1.65}.spec-table th,.spec-table td{padding:11px 12px;border-top:1px solid #e8ece7;vertical-align:top}.spec-table th{min-width:100px;color:#283833;font-weight:700}.spec-table td{color:#53615d}.spec-note{margin:12px 0 2px;color:#718078;font-size:10px;line-height:1.6}
