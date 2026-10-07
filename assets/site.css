@@ -30,3 +30,54 @@
 .series-models{max-width:none}.series-three{grid-template-columns:repeat(3,minmax(0,1fr));max-width:none}.series-five{grid-template-columns:repeat(5,minmax(0,1fr));max-width:none}
 @media(max-width:1100px){.series-five{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:900px){.series-three,.series-five{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* V2 information architecture */
+.home-solution-grid .solution-tile{min-height:255px}
+.equipment-gateway{background:#eef1e9}
+.gateway-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:13px}
+.gateway-card{position:relative;min-height:230px;padding:28px;border:1px solid #dce3d9;border-radius:16px;background:#f8f9f5;display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s,box-shadow .2s}
+.gateway-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(30,43,39,.07)}
+.gateway-large{grid-row:span 2;min-height:473px;background:#1d2b29;color:#fff;border-color:#1d2b29}
+.gateway-kicker{font-size:9px;letter-spacing:.13em;color:#87934e;font-weight:700}
+.gateway-large .gateway-kicker{color:#d7e77c}
+.gateway-card h3{font:600 25px/1.18 Manrope,sans-serif;letter-spacing:-.035em;max-width:470px;margin:18px 0 10px}
+.gateway-card:not(.gateway-large) h3{font-size:18px}
+.gateway-card p{font-size:11px;line-height:1.7;color:#69766f;max-width:480px;margin:0}
+.gateway-large p{color:#c4cec7}
+.gateway-arrow{align-self:flex-end;font-size:18px;color:#748345}
+.gateway-large .gateway-arrow{color:#d7e77c}
+.application-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.application-card{min-height:165px;border-top:1px solid #cbd5ca;padding:17px 4px 10px;display:flex;flex-direction:column;justify-content:space-between}
+.application-card>span{font:700 11px Manrope;color:#89964d}
+.application-card h3{font:700 15px Manrope;margin:22px 0 7px}
+.application-card p{font-size:10px;line-height:1.65;color:#6b7871;margin:0}
+.featured-equipment{background:#f2f4ee}
+.featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.featured-card{background:#fff;border:1px solid #e0e6de;border-radius:16px;padding:27px;min-height:235px;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.featured-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(30,43,39,.06)}
+.featured-code{font:700 10px Manrope;letter-spacing:.14em;color:#7f8d48}
+.featured-card h3{font:700 18px Manrope;margin:23px 0 9px}
+.featured-card p{font-size:11px;line-height:1.7;color:#68756e;margin:0}
+.featured-card span:last-child{margin-top:auto;padding-top:20px;font-size:10px;font-weight:700;color:#334a40}
+.selector-section{padding-top:0}
+.selector-step{display:grid;grid-template-columns:65px 1fr;gap:22px;padding:35px 0;border-top:1px solid #d7ded5}
+.selector-step>span{font:700 13px Manrope;color:#89964d}
+.selector-step h2{font:600 28px Manrope;letter-spacing:-.04em;margin:0 0 18px}
+.selector-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.selector-grid a{border:1px solid #dce3da;border-radius:11px;padding:16px;background:#fff;font:600 11px Manrope;color:#394842;transition:border-color .2s,transform .2s}
+.selector-grid a:hover{border-color:#9aa95c;transform:translateY(-2px)}
+.selection-callout{background:#1d2b29;color:#fff;border-radius:19px;padding:38px 42px;display:flex;align-items:end;justify-content:space-between;gap:30px}
+.selection-callout h2{font:600 29px/1.15 Manrope;letter-spacing:-.04em;max-width:650px;margin:0 0 12px}
+.selection-callout p:last-child{font-size:11px;line-height:1.7;color:#c5cec8;max-width:650px;margin:0}
+.selection-callout .eyebrow{color:#b7c2af}
+.breadcrumb{display:flex;gap:9px;align-items:center;padding-top:25px;font-size:10px;color:#8a968f}
+.breadcrumb a{text-decoration:underline;text-underline-offset:3px}.breadcrumb span{color:#a1aaa5}
+.model-hero{padding:72px 0 62px;display:grid;grid-template-columns:1fr 300px;gap:45px;align-items:end}
+.model-hero h1{font:600 clamp(48px,6vw,76px)/.98 Manrope;letter-spacing:-.065em;margin:0 0 19px}
+.model-hero h1 em{display:inline-block;font-size:.5em;line-height:1.2;color:#7d8c4a;font-style:normal;letter-spacing:-.03em}
+.model-hero p:not(.eyebrow){max-width:690px;color:#617069;font-size:14px;line-height:1.75}
+.model-code-panel{border:1px solid #dce3da;border-radius:17px;padding:27px;background:#eef1e9;display:flex;flex-direction:column;gap:8px}
+.model-code-panel span{font-size:8px;letter-spacing:.15em;color:#7d8950;font-weight:700}.model-code-panel strong{font:700 35px Manrope}.model-code-panel small{font-size:9px;color:#707d76;line-height:1.5}
+.model-section{border-top:1px solid #d7ded5}.model-columns{display:grid;grid-template-columns:.75fr 1.25fr;gap:45px}.model-columns h2{font:600 35px/1.12 Manrope;letter-spacing:-.05em;margin:0 0 14px}.model-columns h2 em{font-style:normal;color:#7d8c4a}.model-note{font-size:11px;line-height:1.7;color:#707d76;max-width:400px}.model-spec-scroll{border:1px solid #dfe5dd;border-radius:14px;background:#fff;overflow-x:auto}.model-spec-scroll .spec-table{font-size:11px}.model-spec-scroll .spec-table th{width:35%;background:#fafbf8}.solution-next{margin-top:15px!important}.solution-next a{font-size:10px;font-weight:700;color:#304d42;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:900px){.gateway-grid{grid-template-columns:1fr}.gateway-large{grid-row:auto;min-height:300px}.application-grid{grid-template-columns:repeat(2,1fr)}.featured-grid{grid-template-columns:1fr}.model-hero{grid-template-columns:1fr}.model-columns{grid-template-columns:1fr}}
+@media(max-width:680px){.gateway-card,.gateway-large{min-height:220px}.gateway-large{min-height:280px}.gateway-card h3{font-size:20px}.application-grid{grid-template-columns:1fr 1fr}.featured-card{min-height:205px;padding:22px}.selector-step{grid-template-columns:1fr;gap:9px}.selector-grid{grid-template-columns:1fr 1fr}.selector-step h2{font-size:24px}.selection-callout{align-items:flex-start;flex-direction:column;padding:27px 22px}.model-hero{padding:55px 0 42px;gap:25px}.model-hero h1{font-size:50px}.model-columns h2{font-size:31px}.breadcrumb{padding-top:17px}}
