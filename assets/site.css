@@ -81,3 +81,13 @@
 .model-section{border-top:1px solid #d7ded5}.model-columns{display:grid;grid-template-columns:.75fr 1.25fr;gap:45px}.model-columns h2{font:600 35px/1.12 Manrope;letter-spacing:-.05em;margin:0 0 14px}.model-columns h2 em{font-style:normal;color:#7d8c4a}.model-note{font-size:11px;line-height:1.7;color:#707d76;max-width:400px}.model-spec-scroll{border:1px solid #dfe5dd;border-radius:14px;background:#fff;overflow-x:auto}.model-spec-scroll .spec-table{font-size:11px}.model-spec-scroll .spec-table th{width:35%;background:#fafbf8}.solution-next{margin-top:15px!important}.solution-next a{font-size:10px;font-weight:700;color:#304d42;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:900px){.gateway-grid{grid-template-columns:1fr}.gateway-large{grid-row:auto;min-height:300px}.application-grid{grid-template-columns:repeat(2,1fr)}.featured-grid{grid-template-columns:1fr}.model-hero{grid-template-columns:1fr}.model-columns{grid-template-columns:1fr}}
 @media(max-width:680px){.gateway-card,.gateway-large{min-height:220px}.gateway-large{min-height:280px}.gateway-card h3{font-size:20px}.application-grid{grid-template-columns:1fr 1fr}.featured-card{min-height:205px;padding:22px}.selector-step{grid-template-columns:1fr;gap:9px}.selector-grid{grid-template-columns:1fr 1fr}.selector-step h2{font-size:24px}.selection-callout{align-items:flex-start;flex-direction:column;padding:27px 22px}.model-hero{padding:55px 0 42px;gap:25px}.model-hero h1{font-size:50px}.model-columns h2{font-size:31px}.breadcrumb{padding-top:17px}}
+
+.self-service-preview{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.self-service-product{display:block;border:1px solid #dfe5dd;border-radius:16px;overflow:hidden;background:#fff;transition:transform .2s,box-shadow .2s}
+.self-service-product:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(30,43,39,.07)}
+.self-service-product img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;background:#f7f8f5}
+.self-service-product div{padding:17px 18px 19px}
+.self-service-product span{font:700 8px Manrope;letter-spacing:.15em;color:#87934e}
+.self-service-product h3{font:700 16px Manrope;letter-spacing:-.02em;margin:8px 0 0}
+@media(max-width:900px){.self-service-preview{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.self-service-preview{grid-template-columns:1fr 1fr;gap:8px}.self-service-product div{padding:13px}.self-service-product h3{font-size:14px}}
