@@ -36,5 +36,7 @@ jobs:
             echo "No PDF changes."
           else
             git commit -m "Update public technical specification PDFs"
+            git fetch origin main
+            git rebase origin/main
             git push
           fi
