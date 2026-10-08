@@ -21,7 +21,7 @@ document.querySelectorAll('#year').forEach(el=>el.textContent=new Date().getFull
     var clean=currentKey.replace(/^\/es/,"")||"/";
     target=clean;
   }else{
-    target=coreMap[currentKey]||"/es/products.html";
+    target=coreMap[currentKey]||(currentKey.indexOf("/products/")===0?"/es"+currentKey:"/es/products.html");
   }
   var switcher=document.createElement('div');
   switcher.className='language-switcher';
