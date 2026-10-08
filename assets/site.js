@@ -19,7 +19,7 @@ document.querySelectorAll('#year').forEach(el=>el.textContent=new Date().getFull
   var target;
   if(isEs){
     var clean=currentKey.replace(/^\/es/,"")||"/";
-    target=coreMap[clean]||"/products.html";
+    target=clean;
   }else{
     target=coreMap[currentKey]||"/es/products.html";
   }
