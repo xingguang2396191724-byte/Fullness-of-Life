@@ -96,3 +96,17 @@
 .catalog-product-link figure{height:100%;cursor:pointer;transition:transform .18s,box-shadow .18s,border-color .18s}
 .catalog-product-link:hover figure{transform:translateY(-3px);box-shadow:0 10px 24px rgba(30,43,39,.08);border-color:#cbd5c9}
 .catalog-view-link{display:block;padding:0 13px 13px;color:#66773b;font-size:9px;font-weight:700;letter-spacing:.04em}
+
+
+/* Public technical specification links */
+.technical-spec-card{margin:1.5rem 0 2rem;padding:1.1rem 1.25rem;border:1px solid rgba(18,53,47,.14);border-radius:16px;background:rgba(237,244,240,.55)}
+.technical-spec-kicker{margin:0 0 .25rem;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#4f8b74}
+.technical-spec-card h2,.technical-spec-card h3{margin:.15rem 0 .35rem}
+.technical-spec-actions{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;font-size:.9rem}
+.technical-spec-actions .separator{opacity:.45}
+.technical-spec-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.5rem 0 2.5rem}
+.technical-spec-tile{padding:1.1rem 1.15rem;border:1px solid rgba(18,53,47,.12);border-radius:16px;background:#fff}
+.technical-spec-tile .technical-spec-kicker{margin-bottom:.45rem}
+.technical-spec-tile h3{margin:0 0 .55rem}
+@media (max-width:900px){.technical-spec-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.technical-spec-grid{grid-template-columns:1fr}.technical-spec-card{padding:1rem}}
