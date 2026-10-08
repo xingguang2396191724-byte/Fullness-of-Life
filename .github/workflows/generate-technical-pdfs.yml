@@ -1,5 +1,9 @@
 name: Generate public technical specification PDFs
 
+concurrency:
+  group: generate-technical-pdfs
+  cancel-in-progress: true
+
 on:
   push:
     branches: [main]
@@ -132,5 +136,7 @@ jobs:
             echo "No PDF changes."
           else
             git commit -m "Add public technical specification PDFs"
-            git push
+          git fetch origin main
+          git rebase origin/main
+          git push
           fi
