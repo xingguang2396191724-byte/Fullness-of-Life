@@ -46,3 +46,32 @@ function openSpecFromHash(){const target=location.hash&&document.getElementById(
   document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var href=a.getAttribute('href')||'';var text=(a.textContent||'').trim().replace(/\s+/g,' ').slice(0,100);var data={link_url:a.href,link_text:text,page_path:path,language:lang};if(/wa\.me|whatsapp/i.test(href))track('click_whatsapp',data);else if(/^mailto:/i.test(href))track('click_email',data);else if(/contact\.html|rfq|quote/i.test(href)||/request.*quote/i.test(text)||/cotiz|presupuesto/i.test(text))track('click_rfq',data);else if(/\.pdf(?:$|[?#])/i.test(href)||/download.*spec|specification|descargar.*pdf|especificaci/i.test(text))track('click_download_spec',data);});
   var formEl=document.querySelector('#inquiryForm');if(formEl)formEl.addEventListener('submit',function(){track('product_inquiry_submit',{page_path:path,language:lang});});
 })();
+
+/* WhatsApp Business contact widget */
+(function(){
+  var waNumber='8619167488424';
+  var lang=document.documentElement.lang==='es'?'es':'en';
+  var path=window.location.pathname;
+  var pageName=path.split('/').pop()||'index.html';
+  var modelMatch=pageName.match(/^(f-[0-9]+s?|l[0-9]+(?:bq|bt-pro|-pro)?|u[0-9]+|cd[0-9]+|sw-series|f-[0-9]+)\\.html$/i);
+  var model=modelMatch?modelMatch[1].toUpperCase():'';
+  var message=lang==='es'
+    ? 'Hola JingBear, me interesa'+(model?' el modelo '+model:' el equipo de su sitio web')+'.\\n\\nPaís de destino: \\nCantidad: \\nAplicación: '
+    : 'Hi JingBear, I\\'m interested'+(model?' in model '+model:' in the equipment on your website')+'.\\n\\nDestination: \\nQuantity: \\nApplication: ';
+  var waUrl='https://wa.me/'+waNumber+'?text='+encodeURIComponent(message);
+  var label=lang==='es'?'¿Tienes una consulta?':'Have a question?';
+  var sub=lang==='es'?'Habla con JingBear por WhatsApp':'Chat with JingBear on WhatsApp';
+  var button=lang==='es'?'Abrir WhatsApp':'Chat on WhatsApp';
+  var widget=document.createElement('div');
+  widget.className='whatsapp-widget';
+  widget.innerHTML='<div class="whatsapp-panel" role="dialog" aria-label="'+sub+'" hidden><button class="whatsapp-close" type="button" aria-label="Close">×</button><div class="whatsapp-panel-icon" aria-hidden="true">WA</div><div class="whatsapp-panel-copy"><strong>'+label+'</strong><span>'+sub+'</span></div><a class="whatsapp-panel-button" href="'+waUrl+'" target="_blank" rel="noopener noreferrer">'+button+' <span>↗</span></a><small>'+ (lang==='es'?'Normalmente respondemos en horario comercial.':'Usually answered during business hours.') +'</small></div><button class="whatsapp-fab" type="button" aria-label="'+sub+'" aria-expanded="false"><span class="whatsapp-fab-icon" aria-hidden="true">⌕</span><span class="whatsapp-fab-label">WhatsApp</span></button>';
+  document.body.appendChild(widget);
+  var panel=widget.querySelector('.whatsapp-panel');
+  var fab=widget.querySelector('.whatsapp-fab');
+  var close=widget.querySelector('.whatsapp-close');
+  function openPanel(){panel.hidden=false;fab.setAttribute('aria-expanded','true');widget.classList.add('is-open');}
+  function closePanel(){panel.hidden=true;fab.setAttribute('aria-expanded','false');widget.classList.remove('is-open');}
+  fab.addEventListener('click',function(){panel.hidden?openPanel():closePanel();});
+  close.addEventListener('click',closePanel);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closePanel();});
+})();
