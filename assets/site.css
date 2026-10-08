@@ -34,10 +34,11 @@
 /* V2 information architecture */
 .home-solution-grid .solution-tile{min-height:255px}
 .equipment-gateway{background:#eef1e9}
-.gateway-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:13px}
-.gateway-card{position:relative;min-height:230px;padding:28px;border:1px solid #dce3d9;border-radius:16px;background:#f8f9f5;display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s,box-shadow .2s}
+.gateway-grid{display:grid;grid-template-columns:1.38fr 1fr;grid-template-rows:auto auto;gap:13px}
+.gateway-card{position:relative;min-height:300px;padding:28px;border:1px solid #dce3d9;border-radius:16px;background:#f8f9f5;display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s,box-shadow .2s}
 .gateway-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(30,43,39,.07)}
-.gateway-large{grid-row:span 2;min-height:473px;background:#1d2b29;color:#fff;border-color:#1d2b29}
+.gateway-large{grid-row:auto;min-height:300px;background:#1d2b29;color:#fff;border-color:#1d2b29}
+.gateway-card:nth-child(3){grid-column:1 / -1;min-height:178px}
 .gateway-kicker{font-size:9px;letter-spacing:.13em;color:#87934e;font-weight:700}
 .gateway-large .gateway-kicker{color:#d7e77c}
 .gateway-card h3{font:600 25px/1.18 Manrope,sans-serif;letter-spacing:-.035em;max-width:470px;margin:18px 0 10px}
