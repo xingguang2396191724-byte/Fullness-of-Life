@@ -4,6 +4,7 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
 from reportlab.lib import colors
 from reportlab.lib.units import mm
+from reportlab.lib.utils import ImageReader
 
 OUT="assets/technical-specs"; WA="8619167488424"; EMAIL="sales@jingbears.com"; SITE="https://www.jingbears.com"
 
@@ -23,7 +24,7 @@ def overlay(model,slug):
     c.setFillColor(colors.HexColor("#eef3ed")); c.roundRect(42,34,w-84,82,12,fill=1,stroke=0)
     c.setFillColor(colors.HexColor("#17342e")); c.setFont("Helvetica-Bold",9.5); c.drawString(55,99,"NEED THIS CONFIGURATION?")
     c.setFont("Helvetica",7.5); c.drawString(55,86,"Scan to discuss this model on WhatsApp")
-    c.drawImage(qr_png(model),55,44,width=38,height=38,mask='auto')
+    c.drawImage(ImageReader(qr_png(model)),55,44,width=38,height=38,mask='auto')
     c.setFont("Helvetica",7.2); c.drawString(103,72,"WhatsApp: +86 191 6748 8424")
     c.drawString(103,60,f"Email: {EMAIL}"); c.drawString(103,48,f"Model: {SITE}/products/{slug}.html")
     c.save(); packet.seek(0); page.merge_page(PdfReader(packet).pages[0])
