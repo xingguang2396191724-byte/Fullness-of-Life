@@ -61,3 +61,5 @@ for fn in os.listdir(OUT):
     model={"f-430s":"F-430S","f-930":"F-930","f-930s":"F-930S","f-932":"F-932","l520b-pro":"L520B Pro","l520bq":"L520BQ","l520bt-pro":"L520BT Pro","l600bt-pro":"L600BT Pro","u700":"U700","u800a":"U800A","cd1000":"CD1000","cd200ps":"CD200PS","f-305":"F-305","f-702":"F-702"}.get(slug,slug.upper())
     overlay(model,slug); os.replace(f"/tmp/{slug}.pdf",f"{OUT}/{fn}")
 replace_special("f-660","F-660"); replace_special("f-680","F-680")
+
+# Trigger PDF rebuild after workflow installation.
