@@ -47,3 +47,57 @@ for slug,(model,desc,rows) in D.items():
     story += [contact,Spacer(1,4)]
     note="Additional parameters were transcribed from the supplied F-660/F-680 product-sheet screenshots." if slug in ("f-660","f-680") else "Technical figures are based on available product documentation; final configuration and quotation basis are confirmed in writing."
     story.append(Paragraph(note,N)); doc.build(story)
+
+ES_DESC={
+"f-430s":"Extracción por pulverización + vapor",
+"f-660":"Máquina comercial para limpieza de tejidos",
+"f-680":"Máquina de limpieza de tejidos con vapor",
+"f-930":"Extractor de alfombras de agua fría 3 en 1",
+"f-930s":"Extractor de alfombras con vapor 4 en 1",
+"f-932":"Extractor de alfombras 3 en 1 con doble aspiración",
+"l520b-pro":"Fregadora de suelos de acompañamiento",
+"l520bq":"Fregadora de suelos de acompañamiento",
+"l520bt-pro":"Fregadora de suelos con tracción asistida",
+"l600bt-pro":"Fregadora de suelos con tracción asistida",
+"u700":"Fregadora de suelos de gran formato",
+"u800a":"Fregadora de suelos de gran formato",
+"cd1000":"Barredora de suelos motorizada",
+"cd200ps":"Barredora de suelos manual",
+"f-305":"Aspirador comercial húmedo y seco",
+"f-702":"Aspirador comercial húmedo y seco"
+}
+ES_LABELS={
+"Power supply":"Alimentación","Suction motor":"Motor de aspiración","Spray motor":"Motor de pulverización","Clean-water tank":"Depósito de agua limpia","Recovery tank":"Depósito de recuperación","Airflow":"Caudal de aire","Hose length":"Longitud de manguera","Power cord":"Cable de alimentación","Functions":"Funciones","Dimensions":"Dimensiones","Net weight":"Peso neto","Power / suction":"Potencia / aspiración","Foam motor":"Motor de espuma","Brush motor":"Motor de cepillo","Noise level":"Nivel de ruido","Inner solution tank":"Depósito interior de solución","External solution tank":"Depósito exterior de solución","Soft hose length":"Longitud de manguera flexible","Cable":"Cable","Airflow rate":"Caudal de aire","Weight":"Peso","Dimension":"Dimensiones","Safety level":"Nivel de seguridad","Suction motors":"Motores de aspiración","Brush motor":"Motor de cepillo","Water pump":"Bomba de agua","Heater":"Calentador","Working width":"Anchura de trabajo","Suction":"Aspiración","Scrubbing width":"Anchura de fregado","Squeegee width":"Anchura de la boquilla","Productivity":"Productividad","Brush motor":"Motor de cepillo","Vacuum motor":"Motor de aspiración","Clean/recovery tanks":"Depósitos de agua limpia / recuperación","Drive motor":"Motor de tracción","Brush motors":"Motores de cepillo","Cleaning width":"Anchura de limpieza","Main brush":"Cepillo principal","Side brushes":"Cepillos laterales","Debris / water capacity":"Capacidad de residuos / agua","Runtime":"Autonomía","Debris bin":"Depósito de residuos","Rated power":"Potencia nominal","Tank capacity":"Capacidad del depósito","Steam motor":"Motor de vapor","Steam temperature":"Temperatura de vapor","Suction":"Aspiración"
+}
+ES_EXTRA={
+"f-430s":"Máquina multifunción para extracción, aspiración y vapor en tejidos e interiores.",
+"f-660":"Configuración documentada para limpieza de tapicería, alfombras e interiores, con extracción y agitación mecánica.",
+"f-680":"Configuración documentada para limpieza de tejidos con extracción, agitación y sistema de vapor.",
+"f-930":"Equipo profesional de extracción de alfombras para aplicaciones comerciales de limpieza.",
+"f-930s":"Configuración de extracción de alfombras con sistema de vapor para aplicaciones profesionales.",
+"f-932":"Configuración de extracción con dos motores de aspiración para aplicaciones comerciales.",
+"l520b-pro":"Fregadora de acompañamiento para superficies de suelo que requieren cobertura y productividad comercial.",
+"l520bq":"Configuración de fregadora de acompañamiento con depósito de recuperación de 55 L.",
+"l520bt-pro":"Fregadora con motor de tracción para aplicaciones comerciales de limpieza de suelos.",
+"l600bt-pro":"Fregadora de mayor anchura de trabajo con motor de tracción para limpieza comercial.",
+"u700":"Fregadora de gran formato para superficies comerciales donde importan la cobertura y la productividad.",
+"u800a":"Configuración de gran anchura de trabajo para superficies comerciales de mayor tamaño.",
+"cd1000":"Barredora motorizada para recogida de residuos en aplicaciones comerciales.",
+"cd200ps":"Barredora manual para limpieza de superficies y recogida de residuos sin alimentación eléctrica.",
+"f-305":"Aspirador compacto húmedo/seco para limpieza general y aplicaciones comerciales.",
+"f-702":"Aspirador de mayor capacidad para aplicaciones comerciales de limpieza húmeda y seca."
+}
+for slug,(model,desc,rows) in D.items():
+    pdf=f"{OUT}/{slug}-JingBear-Technical-Specification-ES.pdf"
+    q=qrcode.QRCode(box_size=5,border=2); q.add_data(f"https://wa.me/{WA}?text="+urllib.parse.quote(f"Hola JingBear, me interesa {model}. País de destino: Cantidad: Aplicación:")); q.make(fit=True)
+    qb=io.BytesIO(); q.make_image(fill_color="#17342e",back_color="white").save(qb,format="PNG"); qb.seek(0)
+    doc=SimpleDocTemplate(pdf,pagesize=A4,rightMargin=16*mm,leftMargin=16*mm,topMargin=13*mm,bottomMargin=10*mm)
+    story=[Paragraph("JINGBEAR",K),Paragraph("Especificación técnica",T),Paragraph(f"<b>{model}</b> · {ES_DESC[slug]}",N),Spacer(1,6)]
+    data=[[Paragraph("<b>Parámetro</b>",N),Paragraph("<b>Valor documentado</b>",N)]]+[[Paragraph(ES_LABELS.get(a,a),N),Paragraph(b,N)] for a,b in rows]
+    tb=Table(data,colWidths=[54*mm,116*mm],repeatRows=1)
+    tb.setStyle(TableStyle([("BACKGROUND",(0,0),(-1,0),colors.HexColor("#eef3ed")),("GRID",(0,0),(-1,-1),.35,colors.HexColor("#d9e1da")),("VALIGN",(0,0),(-1,-1),"TOP"),("ROWBACKGROUNDS",(0,1),(-1,-1),[colors.white,colors.HexColor("#fafbf9")]),("LEFTPADDING",(0,0),(-1,-1),7),("RIGHTPADDING",(0,0),(-1,-1),7),("TOPPADDING",(0,0),(-1,-1),4),("BOTTOMPADDING",(0,0),(-1,-1),4)]))
+    story += [tb,Spacer(1,5),Paragraph("APLICACIÓN",K),Paragraph(ES_EXTRA[slug]+" La aplicación concreta y la configuración final se confirman mediante cotización escrita.",N),Spacer(1,5)]
+    contact=Table([[Paragraph("¿NECESITAS ESTA CONFIGURACIÓN?",CT),"",""],[Paragraph("Escanea para hablar de este modelo por WhatsApp",C),"",""],[Image(qb,width=28*mm,height=28*mm),Paragraph(f"<b>WhatsApp:</b> +86 191 6748 8424<br/><b>Email:</b> {EMAIL}<br/><b>Página del modelo:</b> {SITE}/es/products/{slug}.html<br/><b>Solicitar cotización:</b> {SITE}/es/contact.html",C),""]],colWidths=[34*mm,100*mm,36*mm])
+    contact.setStyle(TableStyle([("SPAN",(0,0),(-1,0)),("SPAN",(0,1),(-1,1)),("SPAN",(1,2),(-1,2)),("BACKGROUND",(0,0),(-1,-1),colors.HexColor("#eef3ed")),("BOX",(0,0),(-1,-1),.6,colors.HexColor("#cfdacf")),("VALIGN",(0,0),(-1,-1),"MIDDLE"),("LEFTPADDING",(0,0),(-1,-1),8),("RIGHTPADDING",(0,0),(-1,-1),8),("TOPPADDING",(0,0),(-1,-1),5),("BOTTOMPADDING",(0,0),(-1,-1),5)]))
+    story += [contact,Spacer(1,4),Paragraph("Los parámetros se basan en la documentación de producto disponible para JingBear. La configuración final, disponibilidad y base de cotización se confirman por escrito.",N)]
+    doc.build(story)
