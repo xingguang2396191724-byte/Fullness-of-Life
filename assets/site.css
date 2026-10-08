@@ -112,3 +112,12 @@
 .technical-spec-tile h3{margin:0 0 .55rem}
 @media (max-width:900px){.technical-spec-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:620px){.technical-spec-grid{grid-template-columns:1fr}.technical-spec-card{padding:1rem}}
+
+/* EN / ES language switcher */
+.language-switcher{display:inline-flex;align-items:center;gap:7px;margin-left:8px;padding:7px 9px;border:1px solid rgba(35,54,48,.14);border-radius:999px;background:rgba(255,255,255,.72);font:700 9px/1 Manrope,sans-serif;letter-spacing:.08em}
+.language-switcher a{color:#30483f;text-decoration:none}
+.language-switcher a:hover{text-decoration:underline;text-underline-offset:3px}
+.language-label{color:#7f8a84}
+.language-divider{color:#b1b9b4}
+@media(max-width:900px){.language-switcher{position:absolute;right:58px;top:17px;margin:0;background:#fff}.site-header{position:relative}}
+@media(max-width:680px){.language-switcher{right:55px;top:14px;padding:6px 8px}}
