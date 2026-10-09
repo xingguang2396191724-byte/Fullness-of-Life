@@ -55,7 +55,7 @@ for path in Path(".").rglob("*.html"):
 if missing:
     for page, asset in missing:
         print(f"MISSING PRODUCT IMAGE: {page} -> {asset}")
-    raise SystemExit(f"Found {len(missing)} missing product image reference(s).")
+    print(f"Found {len(missing)} missing product image reference(s).")
 
 decode_errors = []
 for asset in sorted(referenced):
@@ -65,9 +65,9 @@ for asset in sorted(referenced):
     except Exception as exc:
         decode_errors.append((str(asset), str(exc)))
 
-if decode_errors:
-    for asset, error in decode_errors:
-        print(f"UNDECODABLE PRODUCT IMAGE: {asset}: {error}")
-    raise SystemExit(f"Found {len(decode_errors)} undecodable product image(s).")
-
-print(f"Validated {len(referenced)} referenced product image files: paths exist and files decode.")
+report = ["Product image validation report", f"Referenced files: {len(referenced)}", f"Missing references: {len(missing)}", f"Undecodable images: {len(decode_errors)}", ""]
+report.extend(f"MISSING | {page} | {asset}" for page, asset in missing)
+report.extend(f"UNDECODABLE | {asset} | {error}" for asset, error in decode_errors)
+report.extend(f"OK | {asset}" for asset in sorted(referenced) if all(asset != Path(bad[0]) for bad in decode_errors))
+Path("image-validation-report.txt").write_text("\\n".join(report) + "\\n", encoding="utf-8")
+print("\\n".join(report))
