@@ -53,11 +53,11 @@ function openSpecFromHash(){const target=location.hash&&document.getElementById(
   var lang=document.documentElement.lang==='es'?'es':'en';
   var path=window.location.pathname;
   var pageName=path.split('/').pop()||'index.html';
-  var modelMatch=pageName.match(/^(f-[0-9]+s?|l[0-9]+(?:bq|bt-pro|-pro)?|u[0-9]+|cd[0-9]+|sw-series)\\.html$/i);
+  var modelMatch=pageName.match(/^(f-[0-9]+s?|l[0-9]+(?:bq|bt-pro|-pro)?|u[0-9]+|cd[0-9]+|sw-series)\.html$/i);
   var model=modelMatch?modelMatch[1].toUpperCase():'';
   var message=lang==='es'
-    ? 'Hola JingBear, me interesa'+(model?' el modelo '+model:' el equipo de su sitio web')+'.\\n\\nPaís de destino: \\nCantidad: \\nAplicación: '
-    : 'Hi JingBear, I\\'m interested'+(model?' in model '+model:' in the equipment on your website')+'.\\n\\nDestination: \\nQuantity: \\nApplication: ';
+    ? 'Hola JingBear, me interesa'+(model?' el modelo '+model:' el equipo de su sitio web')+'.\n\nPaís de destino: \nCantidad: \nAplicación: '
+    : 'Hi JingBear, I\'m interested'+(model?' in model '+model:' in the equipment on your website')+'.\n\nDestination: \nQuantity: \nApplication: ';
   var waUrl='https://wa.me/'+waNumber+'?text='+encodeURIComponent(message);
   var label=lang==='es'?'¿Tienes una consulta?':'Need help choosing a model?';
   var sub=lang==='es'?'Habla con JingBear por WhatsApp':'Chat with JingBear on WhatsApp';
