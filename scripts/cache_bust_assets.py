@@ -69,5 +69,5 @@ report = ["Product image validation report", f"Referenced files: {len(referenced
 report.extend(f"MISSING | {page} | {asset}" for page, asset in missing)
 report.extend(f"UNDECODABLE | {asset} | {error}" for asset, error in decode_errors)
 report.extend(f"OK | {asset}" for asset in sorted(referenced) if all(asset != Path(bad[0]) for bad in decode_errors))
-Path("image-validation-report.txt").write_text("\\n".join(report) + "\\n", encoding="utf-8")
+
 print("\\n".join(report))
