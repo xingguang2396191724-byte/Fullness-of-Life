@@ -1,5 +1,6 @@
 from pathlib import Path
 import re
+from PIL import Image
 
 VERSION = "20261009-3"
 changed = []
@@ -27,3 +28,46 @@ for path in Path(".").rglob("*.html"):
 print(f"Cache-busted {len(changed)} HTML files:")
 for item in changed:
     print(item)
+
+# Validate every referenced product image path and verify that image files decode.
+missing = []
+referenced = set()
+for path in Path(".").rglob("*.html"):
+    if ".git" in path.parts:
+        continue
+    content = path.read_text(encoding="utf-8")
+    for match in re.finditer(r'(?:src|data-src)=["\']([^"\']*assets/products/[^"\']+)["\']', content, re.IGNORECASE):
+        rel = match.group(1).split("?", 1)[0]
+        marker = "assets/products/"
+        idx = rel.lower().find(marker)
+        if idx < 0:
+            continue
+        asset_rel = rel[idx:]
+        asset_path = Path(asset_rel)
+        if not asset_path.exists():
+            # Resolve relative paths from the HTML page directory.
+            asset_path = (path.parent / rel).resolve()
+        if not asset_path.exists():
+            missing.append((str(path), rel))
+        else:
+            referenced.add(asset_path)
+
+if missing:
+    for page, asset in missing:
+        print(f"MISSING PRODUCT IMAGE: {page} -> {asset}")
+    raise SystemExit(f"Found {len(missing)} missing product image reference(s).")
+
+decode_errors = []
+for asset in sorted(referenced):
+    try:
+        with Image.open(asset) as im:
+            im.verify()
+    except Exception as exc:
+        decode_errors.append((str(asset), str(exc)))
+
+if decode_errors:
+    for asset, error in decode_errors:
+        print(f"UNDECODABLE PRODUCT IMAGE: {asset}: {error}")
+    raise SystemExit(f"Found {len(decode_errors)} undecodable product image(s).")
+
+print(f"Validated {len(referenced)} referenced product image files: paths exist and files decode.")
