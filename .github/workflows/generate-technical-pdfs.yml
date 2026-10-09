@@ -10,6 +10,7 @@ on:
     paths:
       - ".github/workflows/generate-technical-pdfs.yml"
       - "scripts/update_technical_pdfs.py"
+      - "scripts/cache_bust_assets.py"
       - "products/*.html"
 
 permissions:
@@ -25,13 +26,15 @@ jobs:
           python-version: "3.12"
       - name: Install PDF dependencies
         run: python -m pip install reportlab qrcode[pil]
+      - name: Bust browser and CDN cache for shared assets and PDF links
+        run: python scripts/cache_bust_assets.py
       - name: Generate PDFs
         run: python scripts/update_technical_pdfs.py
       - name: Commit generated PDFs
         run: |
           git config user.name "JingBear Bot"
           git config user.email "actions@github.com"
-          git add assets/technical-specs/*.pdf
+          git add -A
           if git diff --cached --quiet; then
             echo "No PDF changes."
           else
