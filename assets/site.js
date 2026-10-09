@@ -79,17 +79,7 @@ function openSpecFromHash(){const target=location.hash&&document.getElementById(
   teaserClose.addEventListener('click',function(){teaser.hidden=true;});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closePanel();});
 
-  /* First-visit desktop teaser: one quiet 5-second prompt, once per session. */
-  var isDesktop=window.matchMedia('(min-width: 901px)').matches;
-  if(isDesktop && !sessionStorage.getItem('jingbear_wa_teaser_seen')){
-    window.setTimeout(function(){
-      if(!document.hidden && !widget.classList.contains('is-open')){
-        teaser.hidden=false;
-        sessionStorage.setItem('jingbear_wa_teaser_seen','1');
-        window.setTimeout(function(){teaser.hidden=true;},5000);
-      }
-    },900);
-  }
+  /* Keep the WhatsApp entry quiet by default; no timed pop-up. */
 
   /* Product-detail pages get an inline contextual CTA as a second contact bridge. */
   if(model){
