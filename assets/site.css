@@ -145,3 +145,31 @@
 @media(max-width:900px){.whatsapp-teaser{display:none}.product-whatsapp-cta{align-items:flex-start;flex-direction:column;gap:13px}.product-whatsapp-cta>a{width:100%;justify-content:center}}
 @media(max-width:640px){.whatsapp-widget{right:14px;bottom:14px}.whatsapp-panel{right:0;bottom:66px;width:min(320px,calc(100vw - 28px))}.whatsapp-fab{padding:11px 14px 11px 11px}.whatsapp-fab-copy b{font-size:11px}.whatsapp-fab-copy small{font-size:8px}}
 
+/* Product-series layout correction: keep headings and galleries in one full-width column. */
+.product-series{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  align-items:start;
+}
+.product-series > .series-heading,
+.product-series > .series-models,
+.product-series > .catalog-gallery{
+  grid-column:1 / -1;
+  width:100%;
+  min-width:0;
+}
+.product-series > .series-models{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  max-width:none;
+}
+.product-series .catalog-product-link,
+.product-series figure{
+  min-width:0;
+}
+@media(max-width:680px){
+  .product-series > .series-models{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
