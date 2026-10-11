@@ -13,7 +13,11 @@ document.querySelectorAll('#year').forEach(el=>el.textContent=new Date().getFull
     "/product-options.html":"\/es/product-options.html",
     "/capabilities.html":"\/es/capabilities.html",
     "/about.html":"\/es/about.html",
-    "/contact.html":"\/es/contact.html"
+    "/contact.html":"\/es/contact.html",
+    "/solutions/professional-cleaning/":"\/es/solutions/professional-cleaning/",
+    "/solutions/automated-self-service/":"\/es/solutions/automated-self-service/",
+    "/solutions/facility-hospitality/":"\/es/solutions/facility-hospitality/",
+    "/solutions/heritage-museum-care/":"\/es/solutions/heritage-museum-care/"
   };
   var currentKey=path.replace(/\\/g,"/");
   var target;
@@ -33,6 +37,8 @@ document.querySelectorAll('#year').forEach(el=>el.textContent=new Date().getFull
   if(header) header.appendChild(switcher);
 })();
 
+/* Pre-fill project context when a buyer arrives from a Solution page. */
+(function(){var form=document.querySelector('#inquiryForm');if(!form)return;var slug=new URLSearchParams(window.location.search).get('solution');if(!slug)return;var labels={'professional-cleaning':{en:'Professional Cleaning',es:'Limpieza profesional'},'automated-self-service':{en:'Automated & Self-Service Businesses',es:'Negocios automatizados y de autoservicio'},'facility-hospitality':{en:'Facility & Hospitality',es:'Instalaciones y hostelería'},'heritage-museum-care':{en:'Heritage & Museum Care',es:'Patrimonio y museos'},'project':{en:'Project procurement',es:'Compra para un proyecto'}};var item=labels[slug];if(!item)return;var es=document.documentElement.lang==='es';var message=document.querySelector('#message');if(message&&!message.value.trim()){message.value=es?'Consulta sobre: '+item.es+'\n\nPaís de destino: \nAplicación y condiciones del sitio: \nCantidad aproximada: \nRequisitos técnicos o de entrega: ':'Enquiry about: '+item.en+'\n\nDestination country: \nApplication and site conditions: \nApproximate quantity: \nTechnical or delivery requirements: ';}var heading=document.querySelector('#inquiryForm h2');if(heading)heading.textContent=es?'Consulta de proyecto: '+item.es:'Project inquiry: '+item.en;})();
 const form=document.querySelector('#inquiryForm');if(form){form.addEventListener('submit',e=>{e.preventDefault();if(!form.reportValidity())return;const d=new FormData(form);const es=document.documentElement.lang==='es';const lines=es?['Hola JingBear, me gustaría consultar sobre un equipo.','',`Nombre: ${d.get('name')}`,`Empresa: ${d.get('company')||'No indicado'}`,`Email comercial: ${d.get('email')}`,`Destino: ${d.get('country')}`,`Tipo de comprador: ${d.get('buyer')}`,`Producto: ${d.get('product')}`,`Cantidad objetivo: ${d.get('quantity')||'No indicada'}`,`Calendario objetivo: ${d.get('timeline')||'No indicado'}`,`Voltaje / frecuencia: ${d.get('voltage')||'No indicado'}`,`OEM / marca propia: ${d.get('oem')||'No especificado'}`,'',`Requisitos: ${d.get('message')}`]:['Hello JingBear, I would like to discuss a product inquiry.','',`Name: ${d.get('name')}`,`Company: ${d.get('company')||'Not provided'}`,`Business email: ${d.get('email')}`,`Destination: ${d.get('country')}`,`Buyer type: ${d.get('buyer')}`,`Product interest: ${d.get('product')}`,`Target quantity: ${d.get('quantity')||'Not provided'}`,`Target timeline: ${d.get('timeline')||'Not provided'}`,`Voltage / frequency: ${d.get('voltage')||'Not provided'}`,`OEM / private label: ${d.get('oem')||'Not specified'}`,'',`Requirements: ${d.get('message')}`];const url='https://wa.me/8619167488424?text='+encodeURIComponent(lines.join('\\n'));window.open(url,'_blank','noopener,noreferrer');const status=document.querySelector('#formResult');if(status)status.classList.add('show')})}
 
 function openSpecFromHash(){const target=location.hash&&document.getElementById(decodeURIComponent(location.hash.slice(1)));if(target&&target.matches('details.spec-details'))target.open=true}window.addEventListener('hashchange',openSpecFromHash);openSpecFromHash();
@@ -42,7 +48,7 @@ function openSpecFromHash(){const target=location.hash&&document.getElementById(
   function track(name, params){if(typeof window.gtag==='function') window.gtag('event',name,params||{});}
   var path=window.location.pathname;var page=path.split('/').pop()||'index.html';var lang=document.documentElement.lang||'en';
   if(/^f-[^/]+\.html$|^l[0-9]+.*\.html$|^u[0-9]+.*\.html$|^cd[0-9]+.*\.html$|^sw-series\.html$/.test(page)){track('view_product',{product_page:page,language:lang});track('view_technical_spec',{product_page:page,language:lang});}
-  if(page==='solutions.html') track('view_solution',{solution_page:page,language:lang});
+  if(page==='solutions.html'||path.indexOf('/solutions/')!==-1) track('view_solution',{solution_page:path,language:lang});
   document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var href=a.getAttribute('href')||'';var text=(a.textContent||'').trim().replace(/\s+/g,' ').slice(0,100);var data={link_url:a.href,link_text:text,page_path:path,language:lang};if(/wa\.me|whatsapp/i.test(href))track('click_whatsapp',data);else if(/^mailto:/i.test(href))track('click_email',data);else if(/contact\.html|rfq|quote/i.test(href)||/request.*quote/i.test(text)||/cotiz|presupuesto/i.test(text))track('click_rfq',data);else if(/\.pdf(?:$|[?#])/i.test(href)||/download.*spec|specification|descargar.*pdf|especificaci/i.test(text))track('click_download_spec',data);});
   var formEl=document.querySelector('#inquiryForm');if(formEl)formEl.addEventListener('submit',function(){track('product_inquiry_submit',{page_path:path,language:lang});});
 })();
